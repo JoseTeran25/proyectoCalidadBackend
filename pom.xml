@@ -11,7 +11,7 @@
     <groupId>com.proyecto</groupId>
     <artifactId>proyectoCalidad</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>proyectoCalidad</name>
     <description>proyectoCalidad</description>
     <properties>
