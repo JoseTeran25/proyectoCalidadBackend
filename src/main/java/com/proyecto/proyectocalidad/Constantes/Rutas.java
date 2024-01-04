@@ -1,7 +1,7 @@
 package com.proyecto.proyectocalidad.Constantes;
 
 public enum Rutas {
-    IMAGENES("C:\\Users\\Jose\\Documents\\Archivos Jose\\UNIVERSIDAD\\Sexto\\Calidad de Software\\Proyecto\\");
+    IMAGENES("https://s3-calidad-software.s3.us-east-2.amazonaws.com/calidad/Proyecto/");
 
     private final String ruta;
 

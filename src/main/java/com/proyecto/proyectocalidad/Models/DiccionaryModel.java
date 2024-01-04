@@ -1,6 +1,8 @@
 package com.proyecto.proyectocalidad.Models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -8,11 +10,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "DICCIONARY")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id_s")
 public class DiccionaryModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true,nullable = false, name = "ID_S")
-    private Long id;
+    private Long id_s;
 
     @Column(name = "SANSCKRIT_S")
     private String  sansckrit;
@@ -20,24 +23,29 @@ public class DiccionaryModel {
     private String  spanish;
     @Column(name = "ENGLISH_S")
     private String  english;
+    @Column(name = "LINK")
+    private String link;
 
     @Transient
     private String imagen;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "diccionary")
+    @JsonManagedReference
     private List<DiccionaryWordModel> diccionaryWordModels;
+
+
+
 
     public DiccionaryModel() {
         diccionaryWordModels = new ArrayList<DiccionaryWordModel>();
     }
 
-    public Long getId() {
-        return id;
+    public Long getId_s() {
+        return id_s;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_s(Long id_s) {
+        this.id_s = id_s;
     }
 
     public String getSansckrit() {
@@ -78,5 +86,13 @@ public class DiccionaryModel {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }

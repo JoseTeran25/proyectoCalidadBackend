@@ -25,7 +25,7 @@ public class DiccionaryService {
 
     private byte[] obtenerBytesImagen(Long id) throws IOException {
 
-        Path path = Paths.get(Rutas.IMAGENES.getRuta() + id + ".jpg");
+        /*Path path = Paths.get(Rutas.IMAGENES.getRuta() + id + ".jpg");
 
         if (!Files.exists(path)) {
             // Manejar la situación cuando la imagen no existe
@@ -33,7 +33,9 @@ public class DiccionaryService {
         }
 
 
-        return Files.readAllBytes(path.toAbsolutePath());
+        return Files.readAllBytes(path.toAbsolutePath());*/
+
+        return new byte[0];
     }
 
     public ArrayList<DiccionaryModel> obtenerPalabrasImagenes() {
@@ -41,7 +43,7 @@ public class DiccionaryService {
 
         for (DiccionaryModel diccionaryModel : posiciones) {
             try {
-                byte[] imagenBytes = obtenerBytesImagen(diccionaryModel.getId());
+                byte[] imagenBytes = obtenerBytesImagen(diccionaryModel.getId_s());
                 String imagenBase64 = Base64.getEncoder().encodeToString(imagenBytes);
                 diccionaryModel.setImagen(imagenBase64);
             } catch (IOException e) {

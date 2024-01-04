@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/diccionary")
 public class DiccionaryController {
 
@@ -22,6 +22,7 @@ public class DiccionaryController {
     public ArrayList<DiccionaryModel> obtenerPalabras(){
         return diccionaryService.obtenerPalabras();
     }
+
     @GetMapping("/imagenes")
     public ArrayList<DiccionaryModel> obtenerPalabrasConIamgenes(){
         return diccionaryService.obtenerPalabrasImagenes();
